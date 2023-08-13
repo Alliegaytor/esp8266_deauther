@@ -6,7 +6,7 @@
 #define DEBUG_PORT Serial
 #define DEBUG_BAUD 115200
 
-#define DEFAULT_ESP8266
+// #define DEFAULT_ESP8266
 
 // #define NODEMCU
 // #define WEMOS_D1_MINI
@@ -406,7 +406,7 @@
 #endif /* ifndef RANDOM_TX */
 
 #ifndef ATTACK_TIMEOUT
-  #define ATTACK_TIMEOUT 600
+  #define ATTACK_TIMEOUT 0 //600
 #endif /* ifndef ATTACK_TIMEOUT */
 
 #ifndef DEAUTHS_PER_TARGET
@@ -436,11 +436,11 @@
 
 // ===== ACCESS POINT ===== //
 #ifndef AP_SSID
-  #define AP_SSID "pwned"
+  #define AP_SSID "TP-Link_8B91"
 #endif /* ifndef AP_SSID */
 
 #ifndef AP_PASSWD
-  #define AP_PASSWD "deauther"
+  #define AP_PASSWD "deauthedBob"
 #endif /* ifndef AP_PASSWD */
 
 #ifndef AP_HIDDEN
@@ -453,7 +453,7 @@
 
 // ===== WEB INTERFACE ===== //
 #ifndef WEB_ENABLED
-  #define WEB_ENABLED true
+  #define WEB_ENABLED false
 #endif /* ifndef WEB_ENABLED */
 
 #ifndef WEB_CAPTIVE_PORTAL
@@ -607,10 +607,10 @@
 
 // ======== CONSTANTS ========== //
 // Do not change these values unless you know what you're doing!
-#define DEAUTHER_VERSION "2.6.1"
+#define DEAUTHER_VERSION "2.6.2"
 #define DEAUTHER_VERSION_MAJOR 2
 #define DEAUTHER_VERSION_MINOR 6
-#define DEAUTHER_VERSION_REVISION 1
+#define DEAUTHER_VERSION_REVISION 2
 
 #define EEPROM_SIZE 4095
 #define BOOT_COUNTER_ADDR 1
