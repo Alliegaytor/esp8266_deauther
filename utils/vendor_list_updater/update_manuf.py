@@ -11,7 +11,7 @@ from urllib.request import urlopen
 
 # Old URL doesn't work anymore - WS_MANUF_FILE_URL = "https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;f=manuf"
 # I've changed the URL to the new working URL which is actively kept up to date - Done by Ricardo Penders (soharddbwarez)
-WS_MANUF_FILE_URL = "https://gitlab.com/wireshark/wireshark/-/raw/master/manuf?p=wireshark.git;a=blob_plain;f=manuf"
+WS_MANUF_FILE_URL = "https://web.archive.org/web/20230328024857if_/https://gitlab.com/wireshark/wireshark/-/raw/master/manuf"
 macs = []
 vendors = []
 tempVendors = []
