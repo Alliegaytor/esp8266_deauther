@@ -299,7 +299,7 @@ void CLI::runCommand(String input) {
         uint8_t  nextmode     = SCAN_MODE_OFF;
         uint8_t  channel      = wifi_channel;
         bool     channelHop   = true;
-        uint32_t time         = 15000;
+        uint32_t time         = 30000;
         uint32_t continueTime = 10000;
 
         for (int i = 1; i < list->size(); i++) {

@@ -38,7 +38,7 @@ extern void prntln(const uint32_t i);
 
 // ===== GLOBAL STRINGS ===== //
 
-// Often used characters, therefor in the RAM
+// Often used characters, therefore in the RAM
 const char CURSOR              = '|';
 const char SPACE               = ' ';
 const char DOUBLEPOINT         = ':';

@@ -6,7 +6,7 @@
 #define DEBUG_PORT Serial
 #define DEBUG_BAUD 115200
 
-// #define DEFAULT_ESP8266
+#define DEFAULT_ESP8266
 
 // #define NODEMCU
 // #define WEMOS_D1_MINI
@@ -522,13 +522,13 @@
 #endif /* ifndef LED_MODE_IDLE */
 
 #ifndef LED_MODE_BRIGHTNESS
-  #define LED_MODE_BRIGHTNESS 10
+  #define LED_MODE_BRIGHTNESS 5
 #endif /* ifndef LED_MODE_BRIGHTNESS */
 
 // =============== DISPLAY =============== //
 
 #ifndef DISPLAY_TIMEOUT
-  #define DISPLAY_TIMEOUT 600
+  #define DISPLAY_TIMEOUT 300
 #endif /* ifndef DISPLAY_TIMEOUT */
 
 #ifndef DISPLAY_TEXT
