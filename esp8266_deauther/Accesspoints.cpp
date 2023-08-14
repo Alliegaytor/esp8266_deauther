@@ -93,7 +93,7 @@ String Accesspoints::getSSID(int num) {
     if (!check(num)) return String();
 
     if (getHidden(num)) {
-        return str(AP_HIDDE_SSID);
+        return str(AP_HIDDEN_SSID) + getShortMacStr(num);
     } else {
         String ssid = WiFi.SSID(getID(num));
         ssid = ssid.substring(0, 32);
@@ -174,6 +174,24 @@ String Accesspoints::getMacStr(int num) {
     uint8_t* mac = getMac(num);
 
     return bytesToStr(mac, 6);
+}
+
+String Accesspoints::getShortMacStr(int num) {
+    if (!check(num)) return String();
+
+    String value;
+
+    value = ":";
+    uint8_t* mac = getMac(num);
+
+    for (int i = 3; i < 6; i++) {
+        if (mac[i] < 0x10) value += "0";
+        value += String(mac[i], HEX);
+
+        if (i < 5) value += ":";
+    }
+
+    return value;
 }
 
 String Accesspoints::getVendorStr(int num) {

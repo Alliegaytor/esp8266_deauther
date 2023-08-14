@@ -52,6 +52,7 @@ class Accesspoints {
         String getNameStr(int num);
         String getEncStr(int num);
         String getMacStr(int num);
+        String getShortMacStr(int num);
         String getVendorStr(int num);
         String getSelectedStr(int num);
         uint8_t getCh(int num);
