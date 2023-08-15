@@ -392,7 +392,8 @@ const char D_CHANNEL[] PROGMEM = "Channel:";
 const char D_CH[] PROGMEM = "Ch";
 const char D_VENDOR[] PROGMEM = "Vendor:";
 const char D_AP[] PROGMEM = "AP:";
-const char D_PKTS[] PROGMEM = "pkts";
+const char D_PKTS[] PROGMEM = "Pkts:";
+const char D_PKTRATE[] PROGMEM = "Pkt/s";
 const char D_SEEN[] PROGMEM = "Seen:";
 
 // ===== STATIONS ===== //
@@ -499,7 +500,7 @@ const char SC_CONTINUE[] PROGMEM = "s - type stop to disable the continuous mode
 const char SC_RESTART[] PROGMEM = "restarting in ";
 const char SC_ERROR_MODE[] PROGMEM = "ERROR: Invalid scan mode ";
 const char SC_OUTPUT_A[] PROGMEM = "Scanning WiFi [%+2u%%]: %+3u packets/s | %+2u devices | %+2u deauths\r\n";
-const char SC_OUTPUT_B[] PROGMEM = "Scanning WiFi: %+3u packets/s | %+2u devices | %+2u deauths\r\n";
+const char SC_OUTPUT_B[] PROGMEM = "Scanning WiFi: %+4u packets/s | %+2u devices | %+2u deauths\r\n";
 const char SC_JSON_APS[] PROGMEM = "aps";
 const char SC_JSON_STATIONS[] PROGMEM = "stations";
 const char SC_JSON_NAMES[] PROGMEM = "names";
