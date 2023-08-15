@@ -103,7 +103,6 @@ const char CLI_RANDOM[] PROGMEM = "random";                    // random
 const char CLI_GET[] PROGMEM = "get";                          // get
 const char CLI_INFO[] PROGMEM = "info";                        // info
 const char CLI_HELP[] PROGMEM = "help";                        // help
-const char CLI_RICE[] PROGMEM = "rice";                        // rice
 const char CLI_FORMAT[] PROGMEM = "format";                    // format
 const char CLI_DELETE[] PROGMEM = "delete";                    // delete
 const char CLI_PRINT[] PROGMEM = "print";                      // print
@@ -221,10 +220,6 @@ const char CLI_HELP_HEADER[] PROGMEM = "[===== List of commands =====]";
 const char CLI_HELP_FOOTER[] PROGMEM = "========================================================================\r\nfor more information please visit github.com/spacehuhn/esp8266_deauther\r\n========================================================================";
 const char CLI_ERROR_NAME_LEN[] PROGMEM = "ERROR : Name length 0";
 const char CLI_ERROR_MAC_LEN[] PROGMEM = "ERROR : MAC length 0";
-const char CLI_RICE_START[] PROGMEM = "Starting rice debugger (auto - repair mode enabled), please stand by...\r\nKeep the device connected to a power supply until the debugger ends\r\nYOU RISK TO BRICK THE BOARD!!!";
-const char CLI_RICE_OUTPUT[] PROGMEM = "[ % d % % ]\r\n";
-const char CLI_RICE_ERROR[] PROGMEM = "ERROR : Memory check failure at block 0x";
-const char CLI_RICE_MEM[] PROGMEM = "Checking memory block 0x";
 const char CLI_CHICKEN_OUTPUT[] PROGMEM = "                                                                 ` - : /////////:-.                    \r\n"
                                           "                                                            ./++so:`   ``    `.:/++/.               \r\n"
                                           "                                                        `/+o+.+o:.s:-++//s`        `:++-            \r\n"
