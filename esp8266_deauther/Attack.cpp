@@ -444,30 +444,30 @@ void Attack::disableOutput() {
     prntln(A_DISABLED_OUTPUT);
 }
 
-uint32_t Attack::getDeauthPkts() {
+uint16_t Attack::getDeauthPkts() {
     return deauthPkts;
 }
 
-uint32_t Attack::getBeaconPkts() {
+uint16_t Attack::getBeaconPkts() {
     return beaconPkts;
 }
 
-uint32_t Attack::getProbePkts() {
+uint16_t Attack::getProbePkts() {
     return probePkts;
 }
 
-uint32_t Attack::getDeauthMaxPkts() {
+uint16_t Attack::getDeauthMaxPkts() {
     return deauth.maxPkts;
 }
 
-uint32_t Attack::getBeaconMaxPkts() {
+uint16_t Attack::getBeaconMaxPkts() {
     return beacon.maxPkts;
 }
 
-uint32_t Attack::getProbeMaxPkts() {
+uint16_t Attack::getProbeMaxPkts() {
     return probe.maxPkts;
 }
 
-uint32_t Attack::getPacketRate() {
+uint16_t Attack::getPacketRate() {
     return packetRate;
 }

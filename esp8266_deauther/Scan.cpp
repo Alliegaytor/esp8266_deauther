@@ -47,7 +47,7 @@ void Scan::sniffer(uint8_t* buf, uint16_t len) {
 }
 
 int Scan::findAccesspoint(uint8_t* mac) {
-    for (int i = 0; i < accesspoints.count(); i++) {
+    for (uint16_t i = 0; i < accesspoints.count(); i++) {
         if (memcmp(accesspoints.getMac(i), mac, 6) == 0) return i;
     }
     return -1;
@@ -257,7 +257,7 @@ void Scan::nextChannel() {
 }
 
 bool Scan::apWithChannel(uint8_t ch) {
-    for (int i = 0; i < accesspoints.count(); i++)
+    for (uint16_t i = 0; i < accesspoints.count(); i++)
         if (accesspoints.getCh(i) == ch) return true;
 
     return false;
@@ -285,9 +285,9 @@ void Scan::save(bool force) {
     }
 
     buf = String(); // clear buffer
-    uint32_t apCount = accesspoints.count();
+    uint16_t apCount = accesspoints.count();
 
-    for (uint32_t i = 0; i < apCount; i++) {
+    for (uint16_t i = 0; i < apCount; i++) {
         buf += String(OPEN_BRACKET) + String(DOUBLEQUOTES) + escape(accesspoints.getSSID(i)) + String(DOUBLEQUOTES) +
                String(COMMA);                                                                                    // ["ssid",
         buf += String(DOUBLEQUOTES) + escape(accesspoints.getNameStr(i)) + String(DOUBLEQUOTES) + String(COMMA); // "name",
@@ -314,9 +314,9 @@ void Scan::save(bool force) {
     // Stations
     buf += String(CLOSE_BRACKET) + String(COMMA) + String(DOUBLEQUOTES) + str(SC_JSON_STATIONS) + String(DOUBLEQUOTES) +
            String(DOUBLEPOINT) + String(OPEN_BRACKET); // ],"stations":[;
-    uint32_t stationCount = stations.count();
+    uint16_t stationCount = stations.count();
 
-    for (uint32_t i = 0; i < stationCount; i++) {
+    for (uint16_t i = 0; i < stationCount; i++) {
         buf += String(OPEN_BRACKET) + String(DOUBLEQUOTES) + stations.getMacStr(i) + String(DOUBLEQUOTES) +
                String(COMMA);                                                                          // ["00:11:22:00:11:22",
         buf += String(stations.getCh(i)) + String(COMMA);                                              // 1,
@@ -354,11 +354,11 @@ void Scan::save(bool force) {
     prntln(FILE_PATH);
 }
 
-uint32_t Scan::countSelected() {
+uint16_t Scan::countSelected() {
     return accesspoints.selected() + stations.selected() + names.selected();
 }
 
-uint32_t Scan::countAll() {
+uint16_t Scan::countAll() {
     return accesspoints.count() + stations.count() + names.count();
 }
 
@@ -401,7 +401,7 @@ void Scan::printSelected() {
     names.printSelected();
 }
 
-uint32_t Scan::getPackets(int i) {
+uint16_t Scan::getPackets(uint8_t i) {
     if (list->size() < SCAN_PACKET_LIST_SIZE) {
         uint8_t translatedNum = SCAN_PACKET_LIST_SIZE - list->size();
 
@@ -439,8 +439,8 @@ double Scan::getScaleFactor(uint8_t height) {
     return (double)height / (double)getMaxPacket();
 }
 
-uint32_t Scan::getMaxPacket() {
-    uint16_t max = 0;
+uint16_t Scan::getMaxPacket() {
+    uint16_t max = 0; // Assume maximum of 65,535 pkt/s
 
     for (uint8_t i = 0; i < list->size(); i++) {
         if (list->get(i) > max) max = list->get(i);
@@ -448,6 +448,6 @@ uint32_t Scan::getMaxPacket() {
     return max;
 }
 
-uint32_t Scan::getPacketRate() {
+uint16_t Scan::getPacketRate() {
     return list->get(list->size() - 1);
 }

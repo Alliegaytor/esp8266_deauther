@@ -198,9 +198,9 @@ class DisplayUI {
         void drawClock();
         void setTime(int h, int m, int s);
 
-        int clockHour   = 6;
-        int clockMinute = 0;
-        int clockSecond = 0;
+        uint8_t clockHour   = 6;
+        uint8_t clockMinute = 0;
+        uint8_t clockSecond = 0;
 
         uint32_t clockTime = 0;
 

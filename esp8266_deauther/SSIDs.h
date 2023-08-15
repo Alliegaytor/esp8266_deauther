@@ -39,7 +39,7 @@ class SSIDs {
 
         void print(int num);
         void print(int num, bool header, bool footer);
-        void add(String name, bool wpa2, int clones, bool force);
+        void add(String name, bool wpa2, uint16_t clones, bool force);
         void cloneSelected(bool force);
         void remove(int num);
         void enableRandom(uint32_t randomInterval);
@@ -49,7 +49,7 @@ class SSIDs {
         String getName(int num);
         bool getWPA2(int num);
         String getEncStr(int num);
-        int getLen(int num);
+        uint8_t getLen(int num);
 
         void setWPA2(int num, bool wpa2);
         void replace(int num, String name, bool wpa2);
@@ -57,7 +57,7 @@ class SSIDs {
         void printAll();
         void removeAll();
 
-        int count();
+        uint16_t count();
 
     private:
         bool changed            = false;

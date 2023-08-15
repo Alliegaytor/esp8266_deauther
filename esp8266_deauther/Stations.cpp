@@ -20,9 +20,9 @@ void Stations::add(uint8_t* mac, int accesspointNum) {
 }
 
 int Stations::findStation(uint8_t* mac) {
-    int c = count();
+    uint16_t c = count();
 
-    for (int i = 0; i < c; i++) {
+    for (uint16_t i = 0; i < c; i++) {
         if (memcmp(getMac(i), mac, 6) == 0) return i;
     }
     return -1;
@@ -57,10 +57,10 @@ void Stations::removeAll() {
 }
 
 void Stations::removeOldest() {
-    int oldest = 0;
-    int c      = count();
+    uint16_t oldest = 0;
+    uint16_t c      = count();
 
-    for (int i = 1; i < c; i++) {
+    for (uint16_t i = 1; i < c; i++) {
         if (*getTime(i) > *getTime(oldest)) oldest = i;
     }
     internal_remove(oldest);
@@ -69,24 +69,24 @@ void Stations::removeOldest() {
 
 void Stations::printAll() {
     prntln(ST_HEADER);
-    int c = count();
+    uint16_t c = count();
 
     if (c == 0) prntln(ST_LIST_EMPTY);
     else
-        for (int i = 0; i < c; i++) print(i, i == 0, i == c - 1);
+        for (uint16_t i = 0; i < c; i++) print(i, i == 0, i == c - 1);
 }
 
 void Stations::printSelected() {
     prntln(ST_HEADER);
-    int max = selected();
-    int c   = count();
+    uint16_t max = selected();
+    uint16_t c   = count();
 
     if (max == 0) {
         prntln(ST_NO_DEVICES_SELECTED);
         return;
     }
 
-    for (int i = 0, j = 0; i < c && j < max; i++) {
+    for (uint16_t i = 0, j = 0; i < c && j < max; i++) {
         if (getSelected(i)) {
             print(i, j == 0, j == max - 1);
             j++;
@@ -266,43 +266,43 @@ void Stations::remove(int num) {
 }
 
 void Stations::select(String ssid) {
-    for (int i = 0; i < list->size(); i++) {
+    for (uint16_t i = 0; i < count(); i++) {
         if (getAPStr(i).equalsIgnoreCase(ssid)) select(i);
     }
 }
 
 void Stations::deselect(String ssid) {
-    for (int i = 0; i < list->size(); i++) {
+    for (uint16_t i = 0; i < count(); i++) {
         if (getAPStr(i).equalsIgnoreCase(ssid)) deselect(i);
     }
 }
 
 void Stations::remove(String ssid) {
-    for (int i = 0; i < list->size(); i++) {
+    for (uint16_t i = 0; i < count(); i++) {
         if (getAPStr(i).equalsIgnoreCase(ssid)) remove(i);
     }
 }
 
 void Stations::selectAll() {
-    for (int i = 0; i < count(); i++) internal_select(i);
+    for (uint16_t i = 0; i < count(); i++) internal_select(i);
     prntln(ST_SELECTED_ALL);
     changed = true;
 }
 
 void Stations::deselectAll() {
-    for (int i = 0; i < count(); i++) internal_deselect(i);
+    for (uint16_t i = 0; i < count(); i++) internal_deselect(i);
     prntln(ST_DESELECTED_ALL);
     changed = true;
 }
 
-int Stations::count() {
+uint16_t Stations::count() {
     return list->size();
 }
 
-int Stations::selected() {
-    int num = 0;
+uint16_t Stations::selected() {
+    uint16_t num = 0;
 
-    for (int i = 0; i < count(); i++)
+    for (uint16_t i = 0; i < count(); i++)
         if (getSelected(i)) num++;
     return num;
 }
@@ -362,9 +362,9 @@ void Stations::internal_add(uint8_t* mac, int accesspointNum) {
 }
 
 void Stations::internal_removeAll() {
-    int c = count();
+    uint16_t c = count();
 
-    for (int i = 0; i < c; i++) {
+    for (uint16_t i = 0; i < c; i++) {
         free(getMac(i));
         free(getPkts(i));
         free(getTime(i));

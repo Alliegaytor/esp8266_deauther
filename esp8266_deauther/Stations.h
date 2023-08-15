@@ -67,8 +67,8 @@ class Stations {
         void printAll();
         void printSelected();
 
-        int count();
-        int selected();
+        uint16_t count();
+        uint16_t selected();
 
         bool check(int num);
         bool changed = false;

@@ -60,14 +60,14 @@ class Attack {
 
         bool isRunning();
 
-        uint32_t getDeauthPkts();
-        uint32_t getBeaconPkts();
-        uint32_t getProbePkts();
-        uint32_t getDeauthMaxPkts();
-        uint32_t getBeaconMaxPkts();
-        uint32_t getProbeMaxPkts();
+        uint16_t getDeauthPkts();
+        uint16_t getBeaconPkts();
+        uint16_t getProbePkts();
+        uint16_t getDeauthMaxPkts();
+        uint16_t getBeaconMaxPkts();
+        uint16_t getProbeMaxPkts();
 
-        uint32_t getPacketRate();
+        uint16_t getPacketRate();
 
     private:
         void deauthUpdate();
@@ -93,12 +93,12 @@ class Attack {
         AttackType probe;
         bool deauthAll = false;
 
-        uint32_t deauthPkts = 0;
-        uint32_t beaconPkts = 0;
-        uint32_t probePkts  = 0;
+        uint16_t deauthPkts = 0;
+        uint16_t beaconPkts = 0;
+        uint16_t probePkts  = 0;
 
-        uint32_t tmpPacketRate = 0;
-        uint32_t packetRate    = 0;
+        uint16_t tmpPacketRate = 0;
+        uint16_t packetRate    = 0;
 
         uint8_t apCount = 0;
         uint8_t stCount = 0;

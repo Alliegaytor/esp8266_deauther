@@ -58,9 +58,9 @@ void SSIDs::save(bool force) {
     buf = String(); // clear buffer
 
     String name;
-    int    c = count();
+    uint16_t c = count();
 
-    for (int i = 0; i < c; i++) {
+    for (uint16_t i = 0; i < c; i++) {
         name = escape(getName(i));
 
         buf += String(OPEN_BRACKET) + String(DOUBLEQUOTES) + name + String(DOUBLEQUOTES) + String(COMMA); // ["name",
@@ -106,7 +106,7 @@ void SSIDs::update() {
         if (currentTime - randomTime > randomInterval * 1000) {
             prntln(SS_RANDOM_INFO);
 
-            for (int i = 0; i < SSID_LIST_SIZE; i++) {
+            for (uint16_t i = 0; i < SSID_LIST_SIZE; i++) {
                 SSID newSSID;
 
                 if (check(i)) newSSID = list->get(i);
@@ -114,7 +114,7 @@ void SSIDs::update() {
                 newSSID.name = String();
                 newSSID.len  = 32;
 
-                for (int i = 0; i < 32; i++) newSSID.name += char(random(32, 127));
+                for (uint8_t i = 0; i < 32; i++) newSSID.name += char(random(32, 127));
 
                 newSSID.wpa2 = random(0, 2);
 
@@ -136,7 +136,7 @@ bool SSIDs::getWPA2(int num) {
     return check(num) ? list->get(num).wpa2 : false;
 }
 
-int SSIDs::getLen(int num) {
+uint8_t SSIDs::getLen(int num) {
     return check(num) ? list->get(num).len : 0;
 }
 
@@ -162,12 +162,12 @@ void SSIDs::remove(int num) {
 }
 
 String SSIDs::randomize(String name) {
-    int ssidlen = name.length();
+    uint8_t ssidlen = name.length();
 
     if (ssidlen > 32) name = name.substring(0, 32);
 
     if (ssidlen < 32) {
-        for (int i = ssidlen; i < 32; i++) {
+        for (uint8_t i = ssidlen; i < 32; i++) {
             int rnd = random(3);
 
             if ((i < 29) && (rnd == 0)) { // ZERO WIDTH SPACE
@@ -187,7 +187,7 @@ String SSIDs::randomize(String name) {
     return name;
 }
 
-void SSIDs::add(String name, bool wpa2, int clones, bool force) {
+void SSIDs::add(String name, bool wpa2, uint16_t clones, bool force) {
     if (list->size() >= SSID_LIST_SIZE) {
         if (force) {
             internal_remove(0);
@@ -199,7 +199,7 @@ void SSIDs::add(String name, bool wpa2, int clones, bool force) {
 
     if (clones > SSID_LIST_SIZE) clones = SSID_LIST_SIZE;
 
-    for (int i = 0; i < clones; i++) {
+    for (uint16_t i = 0; i < clones; i++) {
         internal_add(clones > 1 ? randomize(name) : name, wpa2, name.length());
 
         if (list->size() > SSID_LIST_SIZE) internal_remove(0);
@@ -212,14 +212,14 @@ void SSIDs::add(String name, bool wpa2, int clones, bool force) {
 
 void SSIDs::cloneSelected(bool force) {
     if (accesspoints.selected() > 0) {
-        int clones = SSID_LIST_SIZE;
+        uint16_t clones = SSID_LIST_SIZE;
 
         if (!force) clones -= list->size();
         clones /= accesspoints.selected();
 
-        int apCount = accesspoints.count();
+        uint16_t apCount = accesspoints.count();
 
-        for (int i = 0; i < apCount; i++) {
+        for (uint16_t i = 0; i < apCount; i++) {
             if (accesspoints.getSelected(i)) add(accesspoints.getSSID(i), accesspoints.getEnc(i) != 0, clones, force);
         }
     }
@@ -232,7 +232,7 @@ bool SSIDs::getRandom() {
 void SSIDs::replace(int num, String name, bool wpa2) {
     if (!check(num)) return;
 
-    int len = name.length();
+    uint8_t len = name.length();
 
     if (len > 32) len = 32;
     SSID newSSID;
@@ -268,14 +268,14 @@ void SSIDs::print(int num, bool header, bool footer) {
 
 void SSIDs::printAll() {
     prntln(SS_HEADER);
-    int c = count();
+    uint16_t c = count();
 
     if (c == 0) prntln(SS_ERROR_EMPTY);
     else
-        for (int i = 0; i < c; i++) print(i, i == 0, i == c - 1);
+        for (uint16_t i = 0; i < c; i++) print(i, i == 0, i == c - 1);
 }
 
-int SSIDs::count() {
+uint16_t SSIDs::count() {
     return list->size();
 }
 
