@@ -779,7 +779,7 @@ void DisplayUI::drawLoadingScan() {
 void DisplayUI::drawPacketMonitor() {
     double scale = scan.getScaleFactor(sreenHeight - lineHeight - 2);
 
-    String headline = leftRight(str(D_CH) + getChannel() + String(' ') + String('[') + String(scan.deauths) + String(']'), String(scan.getPacketRate()) + str(D_PKTS), maxLen);
+    String headline = leftRight(str(D_CH) + getChannel() + String(' ') + String('[') + String(scan.deauths) + String(']'), String(scan.getPacketRate()) + str(D_PKTRATE), maxLen);
 
     drawString(0, 0, headline);
 
