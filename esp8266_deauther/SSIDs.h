@@ -12,7 +12,7 @@ extern "C" {
 #include "SimpleList.h"
 #include "Accesspoints.h"
 
-#define SSID_LIST_SIZE 60
+#define SSID_LIST_SIZE 120
 
 
 extern uint32_t currentTime;
