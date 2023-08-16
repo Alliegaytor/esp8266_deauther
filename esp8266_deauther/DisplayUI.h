@@ -196,7 +196,7 @@ class DisplayUI {
 
         // fake clock
         void drawClock();
-        void setTime(int h, int m, int s);
+        void setTime(uint8_t h, uint8_t m, uint8_t s);
 
         uint8_t clockHour   = 6;
         uint8_t clockMinute = 0;

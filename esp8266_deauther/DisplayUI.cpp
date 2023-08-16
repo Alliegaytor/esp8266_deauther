@@ -900,7 +900,7 @@ void DisplayUI::addMenuNode(Menu* menu, const char* ptr, Menu* next) {
     }, next);
 }
 
-void DisplayUI::setTime(int h, int m, int s) {
+void DisplayUI::setTime(uint8_t h, uint8_t m, uint8_t s) {
     if (s >= 60) {
         s = 0;
         m++;

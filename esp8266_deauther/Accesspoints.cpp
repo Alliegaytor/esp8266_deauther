@@ -37,25 +37,25 @@ void Accesspoints::add(uint8_t id, bool selected) {
 
 void Accesspoints::printAll() {
     prntln(AP_HEADER);
-    int c = count();
+    uint16_t c = count();
 
     if (c == 0) prntln(AP_LIST_EMPTY);
     else
-        for (int i = 0; i < c; i++) print(i, i == 0, i == c - 1);
+        for (uint16_t i = 0; i < c; i++) print(i, i == 0, i == c - 1);
 }
 
 void Accesspoints::printSelected() {
     prntln(AP_HEADER);
-    int max = selected();
+    uint16_t max = selected();
 
     if (selected() == 0) {
         prntln(AP_NO_AP_SELECTED);
         return;
     }
-    int c = count();
-    int j = 0;
+    uint16_t c = count();
+    uint16_t j = 0;
 
-    for (int i = 0; i < c && j < max; i++) {
+    for (uint16_t i = 0; i < c && j < max; i++) {
         if (getSelected(i)) {
             print(i, j == 0, j == max - 1);
             j++;
@@ -184,7 +184,7 @@ String Accesspoints::getShortMacStr(int num) {
     value = ":";
     uint8_t* mac = getMac(num);
 
-    for (int i = 3; i < 6; i++) {
+    for (uint8_t i = 3; i < 6; i++) {
         if (mac[i] < 0x10) value += "0";
         value += String(mac[i], HEX);
 
@@ -252,31 +252,31 @@ void Accesspoints::remove(int num) {
 }
 
 void Accesspoints::select(String ssid) {
-    for (int i = 0; i < list->size(); i++) {
+    for (uint16_t i = 0; i < count(); i++) {
         if (getSSID(i).equalsIgnoreCase(ssid)) select(i);
     }
 }
 
 void Accesspoints::deselect(String ssid) {
-    for (int i = 0; i < list->size(); i++) {
+    for (uint16_t i = 0; i < count(); i++) {
         if (getSSID(i).equalsIgnoreCase(ssid)) deselect(i);
     }
 }
 
 void Accesspoints::remove(String ssid) {
-    for (int i = 0; i < list->size(); i++) {
+    for (uint16_t i = 0; i < count(); i++) {
         if (getSSID(i).equalsIgnoreCase(ssid)) remove(i);
     }
 }
 
 void Accesspoints::selectAll() {
-    for (int i = 0; i < count(); i++) list->replace(i, AP{ list->get(i).id, true });
+    for (uint16_t i = 0; i < count(); i++) list->replace(i, AP{ list->get(i).id, true });
     prntln(AP_SELECTED_ALL);
     changed = true;
 }
 
 void Accesspoints::deselectAll() {
-    for (int i = 0; i < count(); i++) list->replace(i, AP{ list->get(i).id, false });
+    for (uint16_t i = 0; i < count(); i++) list->replace(i, AP{ list->get(i).id, false });
     prntln(AP_DESELECTED_ALL);
     changed = true;
 }
@@ -288,22 +288,22 @@ void Accesspoints::removeAll() {
 }
 
 int Accesspoints::find(uint8_t id) {
-    int s = list->size();
+    uint16_t s = count();
 
-    for (int i = 0; i < s; i++) {
+    for (uint16_t i = 0; i < s; i++) {
         if (list->get(i).id == id) return i;
     }
     return -1;
 }
 
-int Accesspoints::count() {
+uint16_t Accesspoints::count() {
     return list->size();
 }
 
-int Accesspoints::selected() {
-    int c = 0;
+uint16_t Accesspoints::selected() {
+    uint16_t c = 0;
 
-    for (int i = 0; i < list->size(); i++) c += list->get(i).selected;
+    for (uint16_t i = 0; i < count(); i++) c += list->get(i).selected;
     return c;
 }
 

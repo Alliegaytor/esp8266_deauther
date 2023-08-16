@@ -65,8 +65,8 @@ class Accesspoints {
 
         int find(uint8_t id);
 
-        int count();
-        int selected();
+        uint16_t count();
+        uint16_t selected();
 
         bool check(int num);
         bool changed = false;
