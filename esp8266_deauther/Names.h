@@ -10,7 +10,7 @@ extern "C" {
 #include "language.h"
 #include "SimpleList.h"
 
-#define NAME_LIST_SIZE 25
+#define NAME_LIST_SIZE 120
 #define NAME_MAX_LENGTH 17
 
 extern void checkFile(String path, String data);
