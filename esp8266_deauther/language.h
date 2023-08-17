@@ -70,6 +70,7 @@ const char CLOSE_CURLY_BRACKET = '}';
 const char STR_TRUE[] PROGMEM = "true";
 const char STR_FALSE[] PROGMEM = "false";
 const char STR_MIN[] PROGMEM = "min";
+const char STR_WARN[] PROGMEM = "WARNING:";
 
 // ===== SETUP ===== //
 const char SETUP_OK[] PROGMEM = "OK";
@@ -319,6 +320,8 @@ const char CLI_SYSTEM_CHANNEL[] PROGMEM = "Current WiFi channel: ";
 const char CLI_CHANGED_SCREEN[] PROGMEM = "Changed screen mode";
 const char CLI_DEFAULT_AUTOSTART[] PROGMEM = "scan -t 5s\nsysinfo\n";
 const char CLI_RESUMED[] PROGMEM = "Command Line resumed";
+const char CLI_CHANNEL_TOO_HIGH[] PROGMEM = "is higher than the max channel ";
+const char CLI_CHANNEL_SET[] PROGMEM = "Setting channel to";
 
 // ===== DISPLAY ===== //
 
