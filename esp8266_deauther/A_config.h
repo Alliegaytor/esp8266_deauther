@@ -616,6 +616,9 @@
 #define BOOT_COUNTER_ADDR 1
 #define SETTINGS_ADDR 100
 
+// Maximum wifi channel to scan
+#define MAX_CH 13 // 14 for Japan, 13 for most of the world
+
 // ======== AVAILABLE SETTINGS ========== //
 
 

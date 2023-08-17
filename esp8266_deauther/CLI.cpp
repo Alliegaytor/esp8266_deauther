@@ -320,6 +320,12 @@ void CLI::runCommand(String input) {
                 if (!eqlsCMD(i, CLI_ALL)) {
                     channelHop = false;
                     channel    = list->get(i).toInt();
+                    if (channel > MAX_CH) {
+                        prnt(str(STR_WARN) + String(SPACE) + (String)channel + String(SPACE) + str(CLI_CHANNEL_TOO_HIGH));
+                        prnt(MAX_CH + String(POINT) + String(SPACE) + str(CLI_CHANNEL_SET) + String(SPACE));
+                        prntln(MAX_CH);
+                        channel = MAX_CH;
+                    }
                 }
             } else {
                 parameterError(list->get(i));

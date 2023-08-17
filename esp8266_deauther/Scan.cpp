@@ -120,7 +120,7 @@ void Scan::start(uint8_t mode, uint32_t time, uint8_t nextmode, uint32_t continu
         if (sniffTime > 0) prnt(String(sniffTime / 1000) + S);
         else prnt(SC_INFINITELY);
         prnt(SC_ON_CHANNEL);
-        prntln(channelHop ? str(SC_ONE_TO) + (String)14 : (String)wifi_channel);
+        prntln(channelHop ? str(SC_ONE_TO) + (String)MAX_CH : (String)wifi_channel);
 
         // enable sniffer
         wifi::stopAP();
@@ -235,8 +235,8 @@ void Scan::stop() {
 }
 
 void Scan::setChannel(uint8_t ch) {
-    if (ch > 14) ch = 1;
-    else if (ch < 1) ch = 14;
+    if (ch > MAX_CH) ch = 1;
+    else if (ch < 1) ch = MAX_CH;
 
     wifi_promiscuous_enable(0);
     setWifiChannel(ch, true);
@@ -250,7 +250,7 @@ void Scan::nextChannel() {
         do {
             ch++;
 
-            if (ch > 14) ch = 1;
+            if (ch > MAX_CH) ch = 1;
         } while (!apWithChannel(ch));
         setChannel(ch);
     }
