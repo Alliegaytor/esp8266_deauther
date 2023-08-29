@@ -731,3 +731,7 @@
 #if LED_MODE_BRIGHTNESS == 0
 #error LED_MODE_BRIGHTNESS must not be zero!
 #endif /* if LED_MODE_BRIGHTNESS == 0 */
+
+#if MAX_CH > 14 || MAX_CH < 1
+#error MAX_CH must be 1 <= MAX_CH <= 14
+#endif /* if MAX_CH > 14 || MAX_CH < 1 */
