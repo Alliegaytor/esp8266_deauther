@@ -772,7 +772,7 @@ void DisplayUI::drawLoadingScan() {
     drawString(0, leftRight(str(DSP_SCAN_FOR), scan.getMode(), maxLen));
     drawString(1, leftRight(str(DSP_APS), String(accesspoints.count()), maxLen));
     drawString(2, leftRight(str(DSP_STS), String(stations.count()), maxLen));
-    drawString(3, leftRight(str(DSP_PKTS), String(scan.getPacketRate()) + str(DSP_S), maxLen));
+    drawString(3, leftRight(str(D_PKTRATE), String(scan.getPacketRate()), maxLen));
     drawString(4, center(percentage, maxLen));
 }
 
